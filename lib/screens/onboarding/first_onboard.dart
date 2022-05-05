@@ -19,8 +19,15 @@ class _OnboardingState extends State<Onboarding> {
               child: Column(
                 children: [
                   SvgPicture.asset(
-                    "svg/first_onboard.svg",
+                    "assets/svg/first_onboard.svg",
                     height: 300,
+                  ),
+                  Text(
+                    "Test",
+                    style: TextStyle(
+                      fontSize: 35,
+                      fontWeight: FontWeight.bold,
+                    ),
                   )
                 ],
               ),
