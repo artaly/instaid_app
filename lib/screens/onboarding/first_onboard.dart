@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:instaid_dev/';
 
 class Onboarding extends StatefulWidget {
   @override
@@ -16,7 +15,7 @@ class _OnboardingState extends State<Onboarding> {
           itemCount: 3,
           itemBuilder: (_, i) {
             return Column(
-              children: [SvgPicture.asset("assetName")],
+              children: [SvgPicture.asset("assets/images/first_onboard.svg")],
             );
           }),
     );
