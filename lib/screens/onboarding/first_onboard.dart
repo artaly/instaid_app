@@ -14,8 +14,16 @@ class _OnboardingState extends State<Onboarding> {
       body: PageView.builder(
           itemCount: 3,
           itemBuilder: (_, i) {
-            return Column(
-              children: [SvgPicture.asset("assets/images/first_onboard.svg")],
+            return Padding(
+              padding: const EdgeInsets.all(40),
+              child: Column(
+                children: [
+                  SvgPicture.asset(
+                    "svg/first_onboard.svg",
+                    height: 300,
+                  )
+                ],
+              ),
             );
           }),
     );
