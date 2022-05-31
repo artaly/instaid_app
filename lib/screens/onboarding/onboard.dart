@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'content_model.dart';
+import 'package:instaid_dev/screens/home.dart';
 
 class Onboarding extends StatefulWidget {
   @override
@@ -83,7 +84,13 @@ class _OnboardingState extends State<Onboarding> {
               child: Text(
                   currentIndex == contents.length - 1 ? "Continue" : "Next"),
               onPressed: () {
-                if (currentIndex == contents.length - 1) {}
+                if (currentIndex == contents.length - 1) {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => Home(),
+                      ));
+                }
                 _pageController.nextPage(
                   duration: Duration(milliseconds: 100),
                   curve: Curves.bounceIn,
