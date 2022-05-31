@@ -48,7 +48,7 @@ class _OnboardingState extends State<Onboarding> {
                       children: [
                         SvgPicture.asset(
                           contents[i].image,
-                          height: 280,
+                          height: 350,
                         ),
                         Text(
                           contents[i].title,
