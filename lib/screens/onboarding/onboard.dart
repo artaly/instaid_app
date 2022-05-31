@@ -92,7 +92,7 @@ class _OnboardingState extends State<Onboarding> {
                       ));
                 }
                 _pageController.nextPage(
-                  duration: Duration(milliseconds: 100),
+                  duration: Duration(milliseconds: 90),
                   curve: Curves.bounceIn,
                 );
               },
