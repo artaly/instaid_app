@@ -82,7 +82,7 @@ class _OnboardingState extends State<Onboarding> {
             color: Colors.white,
             child: TextButton(
               child: Text(
-                  currentIndex == contents.length - 1 ? "Continue" : "Next"),
+                  currentIndex == contents.length - 1 ? "Get Started" : "Next"),
               onPressed: () {
                 if (currentIndex == contents.length - 1) {
                   Navigator.pushReplacement(
