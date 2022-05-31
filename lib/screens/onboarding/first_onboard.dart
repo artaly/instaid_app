@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'content_model.dart';
 
 class Onboarding extends StatefulWidget {
   @override
@@ -14,25 +15,26 @@ class _OnboardingState extends State<Onboarding> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView.builder(
-          itemCount: 3,
+          itemCount: contents.length,
           itemBuilder: (_, i) {
             return Padding(
               padding: const EdgeInsets.all(40),
               child: Column(
                 children: [
                   SvgPicture.asset(
-                    "assets/svg/first_onboard.svg",
+                    contents[i].image,
                     height: 280,
                   ),
                   Text(
-                    "Test",
+                    contents[i].title,
                     style: TextStyle(
                       fontSize: 35,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+                  SizedBox(height: 20),
                   Text(
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                    contents[i].discription,
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 18, color: Colors.grey),
                   )
