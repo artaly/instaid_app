@@ -34,7 +34,7 @@ class _OnboardingState extends State<Onboarding> {
                   ),
                   SizedBox(height: 20),
                   Text(
-                    contents[i].discription,
+                    contents[i].description,
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 18, color: Colors.grey),
                   )
