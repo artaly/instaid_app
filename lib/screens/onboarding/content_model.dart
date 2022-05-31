@@ -9,20 +9,20 @@ class UnboardingContent {
 
 List<UnboardingContent> contents = [
   UnboardingContent(
-      title: 'Quality Food',
+      title: 'Test po',
       image: 'assets/svg/first_onboard.svg',
       description: "Hay nako teh"
           "industry's standard dummy text ever since the 1500s, "
           "when an unknown printer took a galley of type and scrambled it "),
   UnboardingContent(
-      title: 'Fast Delevery',
+      title: 'Isa pa po',
       image: 'assets/svg/first_onboard.svg',
       description:
           "simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the "
           "industry's standard dummy text ever since the 1500s, "
           "when an unknown printer took a galley of type and scrambled it "),
   UnboardingContent(
-      title: 'Reward surprises',
+      title: 'Last na po',
       image: 'assets/svg/first_onboard.svg',
       description:
           "simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the "
