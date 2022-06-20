@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       title: 'InstAID',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          primaryColor: HexColor("#699EAD"),
+          primaryColor: primaryColorBlue,
           visualDensity: VisualDensity.adaptivePlatformDensity),
       home: Onboarding(),
     );
