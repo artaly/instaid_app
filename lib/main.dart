@@ -6,13 +6,15 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  Color primaryColorRed = Color(0xffDE4E37);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'InstAID',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          primarySwatch: Colors.green,
+          primarySwatch: primaryColorRed,
           visualDensity: VisualDensity.adaptivePlatformDensity),
       home: Onboarding(),
     );
