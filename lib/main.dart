@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:instaid_dev/screens/onboarding/onboard.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:instaid_dev/constants.dart';
 
 void main() {
   runApp(MyApp());
