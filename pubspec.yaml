@@ -60,6 +60,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/svg/first_onboard.svg
+    - assets/svg/second_onboard.svg
 
   # To add assets to your application, add an assets section, like this:
   # assets:
