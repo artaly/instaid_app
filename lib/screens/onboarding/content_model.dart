@@ -23,7 +23,7 @@ List<UnboardingContent> contents = [
           "when an unknown printer took a galley of type and scrambled it "),
   UnboardingContent(
       title: 'Last na po',
-      image: 'assets/svg/first_onboard.svg',
+      image: 'assets/svg/third_onboard.svg',
       description:
           "simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the "
           "industry's standard dummy text ever since the 1500s, "
