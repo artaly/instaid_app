@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:instaid_dev/routes.dart';
@@ -5,6 +7,7 @@ import 'package:instaid_dev/screens/login/login.dart';
 import 'package:instaid_dev/screens/onboarding/onboard.dart';
 import 'package:instaid_dev/constants.dart';
 import 'package:instaid_dev/screens/login/login.dart';
+import 'package:instaid_dev/constants.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,13 +20,21 @@ class MyApp extends StatelessWidget {
       title: 'InstAID',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          primaryColor: primaryColorBlue,
           appBarTheme: AppBarTheme(
             color: Colors.white,
             elevation: 0,
-            iconTheme: IconThemeData(color: Colors.black),
-            titleTextStyle: TextStyle(color: Color(0xFF8888), fontSize: 19),
+            systemOverlayStyle: SystemUiOverlayStyle(
+              systemNavigationBarIconBrightness: Brightness.light,
+              statusBarIconBrightness: Brightness.light,
+              statusBarBrightness: Brightness.dark,
+            ),
+            //iconTheme: IconThemeData(color: Colors.black)
+            titleTextStyle: Theme.of(context).textTheme.headline6?.copyWith(
+                fontFamily: 'OpenSans', fontSize: 18, color: Color(0XFF8B8B8B)),
           ),
+          scaffoldBackgroundColor: primaryBackground,
+          primaryColor: primaryColorBlue,
+          fontFamily: "Gotham",
           visualDensity: VisualDensity.adaptivePlatformDensity),
       initialRoute: LoginScreen.routeName,
       routes: routes,
