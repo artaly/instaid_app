@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:instaid_dev/screens/onboarding/onboard.dart';
 import 'package:instaid_dev/constants.dart';
+import 'package:instaid_dev/screens/welcome.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           primaryColor: primaryColorBlue,
           visualDensity: VisualDensity.adaptivePlatformDensity),
-      home: Onboarding(),
+      home: WelcomeScreen(),
     );
   }
 }

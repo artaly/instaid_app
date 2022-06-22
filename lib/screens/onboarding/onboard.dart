@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'content_model.dart';
-import 'package:instaid_dev/screens/home.dart';
+import 'package:instaid_dev/screens/welcome.dart';
 
 class Onboarding extends StatefulWidget {
   @override
@@ -88,7 +88,7 @@ class _OnboardingState extends State<Onboarding> {
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                        builder: (_) => Home(),
+                        builder: (_) => WelcomeScreen(),
                       ));
                 }
                 _pageController.nextPage(
