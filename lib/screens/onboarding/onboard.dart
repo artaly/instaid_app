@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:instaid_dev/screens/login.dart';
+import 'package:instaid_dev/screens/login/login.dart';
 import 'content_model.dart';
 
 class Onboarding extends StatefulWidget {
