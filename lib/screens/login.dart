@@ -14,7 +14,7 @@ class LoginScreen extends StatelessWidget {
         alignment: Alignment.center,
         children: <Widget>[
           Positioned(
-            child: Image.asset(""),
+            child: Image.asset("assets/images/main_top.png"),
           )
         ],
       ),
