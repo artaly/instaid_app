@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:instaid_dev/routes.dart';
 import 'package:instaid_dev/screens/login/login.dart';
 import 'package:instaid_dev/screens/onboarding/onboard.dart';
 import 'package:instaid_dev/constants.dart';
@@ -14,10 +16,24 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'InstAID',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          primaryColor: primaryColorBlue,
-          visualDensity: VisualDensity.adaptivePlatformDensity),
-      home: LoginScreen(),
+      theme: theme(),
+      initialRoute: LoginScreen.routeName,
+      routes: routes,
     );
   }
+}
+
+ThemeData theme() {
+  return ThemeData(
+      primaryColor: primaryColorBlue,
+      appBarTheme: AppBarTheme(
+        color: Colors.white,
+        elevation: 0,
+        systemOverlayStyle: SystemUiOverlayStyle(
+          systemNavigationBarIconBrightness: Brightness.light,
+        ),
+        iconTheme: IconThemeData(color: Colors.black),
+        titleTextStyle: TextStyle(color: Color(0xFF8888), fontSize: 19),
+      ),
+      visualDensity: VisualDensity.adaptivePlatformDensity);
 }
