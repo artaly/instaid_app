@@ -84,15 +84,15 @@ flutter:
   fonts:
     - family: Gotham
       fonts:
-        - asset: assets/fonts/GOTHAMPRO-MEDIUM.ttf
-        - asset: assets/fonts/GOTHAMPRO.ttf
+        - asset: assets/fonts/Gotham/GOTHAMPRO-MEDIUM.ttf
+        - asset: assets/fonts/Gotham/GOTHAMPRO.ttf
 
     - family: Poppins
       fonts:
-        - asset: assets/fonts/POPPINS-BOLD.ttf
-        - asset: assets/fonts/POPPINS-MEDIUM.ttf
-        - asset: assets/fonts/POPPINS-REGULAR.ttf
-        - asset: assets/fonts/POPPINS-SEMIBOLD.ttf
+        - asset: assets/fonts/Poppins/POPPINS-BOLD.ttf
+        - asset: assets/fonts/Poppins/POPPINS-MEDIUM.ttf
+        - asset: assets/fonts/Poppins/POPPINS-REGULAR.ttf
+        - asset: assets/fonts/Poppins/POPPINS-SEMIBOLD.ttf
 
   #
   # For details regarding fonts from package dependencies,
