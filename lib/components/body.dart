@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:instaid_dev/components/background.dart';
+import 'package:instaid_dev/components/rounded_button.dart';
 import 'package:instaid_dev/components/rounded_input_field.dart';
 import 'package:instaid_dev/components/rounded_password_field.dart';
 import 'package:instaid_dev/components/text_field_container.dart';
@@ -34,7 +35,11 @@ class Body extends StatelessWidget {
         ),
         RoundedPasswordField(
           onChanged: (value) {},
-        )
+        ),
+        RoundedButton(
+          text: "LOGIN",
+          press: () {},
+        ),
       ],
     ));
   }
