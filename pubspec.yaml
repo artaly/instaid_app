@@ -60,9 +60,8 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - assets/svg/first_onboard.svg
-    - assets/svg/second_onboard.svg
-    - assets/svg/third_onboard.svg
+    - assets/svg/
+    - assets/images
 
 
   # To add assets to your application, add an assets section, like this:
