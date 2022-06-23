@@ -48,10 +48,15 @@ class _LoginFormState extends State<LoginForm> {
   Widget build(BuildContext context) {
     return Form(
       child: Column(children: [
+        buildEmailFormField(),
+        SizedBox(
+          height: getProportionateScreenHeight(20),
+        ),
         TextFormField(
+          keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(
-              labelText: "Email",
-              hintText: "Enter your email",
+              labelText: "Password",
+              hintText: "Enter your password",
               floatingLabelBehavior: FloatingLabelBehavior.always,
               suffixIcon: CustomSuffixIcon(svgIcon: "assets/svg/mail.svg"),
               contentPadding:
@@ -68,6 +73,28 @@ class _LoginFormState extends State<LoginForm> {
               )),
         )
       ]),
+    );
+  }
+
+  TextFormField buildEmailFormField() {
+    return TextFormField(
+      keyboardType: TextInputType.emailAddress,
+      decoration: InputDecoration(
+          labelText: "Email",
+          hintText: "Enter your email",
+          floatingLabelBehavior: FloatingLabelBehavior.always,
+          suffixIcon: CustomSuffixIcon(svgIcon: "assets/svg/mail.svg"),
+          contentPadding: EdgeInsets.symmetric(horizontal: 42, vertical: 20),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(28),
+            borderSide: BorderSide(color: textColor),
+            gapPadding: 10,
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(28),
+            borderSide: BorderSide(color: textColor),
+            gapPadding: 10,
+          )),
     );
   }
 }
