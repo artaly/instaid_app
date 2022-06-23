@@ -58,7 +58,7 @@ class _LoginFormState extends State<LoginForm> {
               labelText: "Password",
               hintText: "Enter your password",
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSuffixIcon(svgIcon: "assets/svg/mail.svg"),
+              suffixIcon: CustomSuffixIcon(svgIcon: "assets/svg/lock.svg"),
               contentPadding:
                   EdgeInsets.symmetric(horizontal: 42, vertical: 20),
               enabledBorder: OutlineInputBorder(
