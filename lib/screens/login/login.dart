@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:instaid_dev/components/body.dart';
+import 'package:instaid_dev/screens/login/components/body.dart';
 
 class LoginScreen extends StatelessWidget {
   static String routeName = "/login";
@@ -11,6 +11,7 @@ class LoginScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text("Login"),
       ),
+      body: Body(),
     );
   }
 }
