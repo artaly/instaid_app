@@ -79,6 +79,19 @@ class _LoginFormState extends State<LoginForm> {
   TextFormField buildPasswordFormField() {
     return TextFormField(
       obscureText: true,
+      onChanged: (value) {
+        if (value.isNotEmpty && errors.contains(txtPassNullErr)) {
+          setState(() {
+            errors.remove(txtPassNullErr);
+          });
+          // } else if (!emailValidatorRegExp.hasMatch(value) &&
+          //     !errors.contains(txtInvalidEmailErr)) {
+          //   setState(() {
+          //     errors.add(txtInvalidEmailErr);
+          //   });
+        }
+        return null;
+      },
       validator: (value) {
         if (value!.isEmpty && errors.contains(txtPassNullErr)) {
           setState(() {
@@ -90,7 +103,6 @@ class _LoginFormState extends State<LoginForm> {
           //     errors.add(txtInvalidEmailErr);
           //   });
         }
-
         return null;
       },
       decoration: InputDecoration(
