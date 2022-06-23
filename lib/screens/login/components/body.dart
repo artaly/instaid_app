@@ -52,27 +52,33 @@ class _LoginFormState extends State<LoginForm> {
         SizedBox(
           height: getProportionateScreenHeight(20),
         ),
-        TextFormField(
-          keyboardType: TextInputType.emailAddress,
-          decoration: InputDecoration(
-              labelText: "Password",
-              hintText: "Enter your password",
-              floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: CustomSuffixIcon(svgIcon: "assets/svg/lock.svg"),
-              contentPadding:
-                  EdgeInsets.symmetric(horizontal: 42, vertical: 20),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(28),
-                borderSide: BorderSide(color: textColor),
-                gapPadding: 10,
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(28),
-                borderSide: BorderSide(color: textColor),
-                gapPadding: 10,
-              )),
+        buildPasswordFormField(),
+        SizedBox(
+          height: getProportionateScreenHeight(20),
         )
       ]),
+    );
+  }
+
+  TextFormField buildPasswordFormField() {
+    return TextFormField(
+      obscureText: true,
+      decoration: InputDecoration(
+          labelText: "Password",
+          hintText: "Enter your password",
+          floatingLabelBehavior: FloatingLabelBehavior.always,
+          suffixIcon: CustomSuffixIcon(svgIcon: "assets/svg/lock.svg"),
+          contentPadding: EdgeInsets.symmetric(horizontal: 42, vertical: 20),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(28),
+            borderSide: BorderSide(color: textColor),
+            gapPadding: 10,
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(28),
+            borderSide: BorderSide(color: textColor),
+            gapPadding: 10,
+          )),
     );
   }
 
