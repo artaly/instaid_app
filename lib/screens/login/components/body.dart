@@ -103,7 +103,7 @@ class _LoginFormState extends State<LoginForm> {
       keyboardType: TextInputType.emailAddress,
       onSaved: (newValue) => email = newValue,
       onChanged: (value) {
-        if (value!.isNotEmpty && errors.contains(txtEmailNullErr)) {
+        if (value.isNotEmpty && errors.contains(txtEmailNullErr)) {
           setState(() {
             errors.remove(txtEmailNullErr);
           });
