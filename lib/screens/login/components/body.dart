@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:instaid_dev/components/custom_suffix_icon.dart';
 import 'package:instaid_dev/size_config.dart';
 import 'package:instaid_dev/constants.dart';
 
@@ -52,16 +53,7 @@ class _LoginFormState extends State<LoginForm> {
               labelText: "Email",
               hintText: "Enter your email",
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              suffixIcon: Padding(
-                  padding: EdgeInsets.fromLTRB(
-                      0,
-                      getProportionateScreenWidth(20),
-                      getProportionateScreenWidth(20),
-                      getProportionateScreenWidth(20)),
-                  child: SvgPicture.asset(
-                    "assets/svg/mail.svg",
-                    height: getProportionateScreenWidth(18),
-                  )),
+              suffixIcon: CustomSuffixIcon(svgIcon: "assets/svg/mail.svg"),
               contentPadding:
                   EdgeInsets.symmetric(horizontal: 42, vertical: 20),
               enabledBorder: OutlineInputBorder(
