@@ -47,6 +47,8 @@ class LoginForm extends StatefulWidget {
 
 class _LoginFormState extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
+  String? email;
+  String? password;
   final List<String> errors = [];
   @override
   Widget build(BuildContext context) {
@@ -99,10 +101,30 @@ class _LoginFormState extends State<LoginForm> {
   TextFormField buildEmailFormField() {
     return TextFormField(
       keyboardType: TextInputType.emailAddress,
+      onSaved: (newValue) => email = newValue,
+      onChanged: (value) {
+        if (value!.isNotEmpty && errors.contains(txtEmailNullErr)) {
+          setState(() {
+            errors.remove(txtEmailNullErr);
+          });
+        } else if (emailValidatorRegExp.hasMatch(value) &&
+            errors.contains(txtInvalidEmailErr)) {
+          setState(() {
+            errors.remove(txtInvalidEmailErr);
+          });
+        }
+
+        return null;
+      },
       validator: (value) {
         if (value!.isEmpty && errors.contains(txtEmailNullErr)) {
           setState(() {
             errors.add(txtEmailNullErr);
+          });
+        } else if (!emailValidatorRegExp.hasMatch(value) &&
+            !errors.contains(txtInvalidEmailErr)) {
+          setState(() {
+            errors.add(txtInvalidEmailErr);
           });
         }
 
