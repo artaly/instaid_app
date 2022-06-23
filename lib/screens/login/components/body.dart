@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:instaid_dev/components/custom_suffix_icon.dart';
+import 'package:instaid_dev/components/form_error.dart';
 import 'package:instaid_dev/size_config.dart';
 import 'package:instaid_dev/constants.dart';
+import 'package:instaid_dev/components/default_button.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
@@ -44,9 +46,12 @@ class LoginForm extends StatefulWidget {
 }
 
 class _LoginFormState extends State<LoginForm> {
+  final _formKey = GlobalKey<FormState>();
+  final List<String> errors = [];
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: _formKey,
       child: Column(children: [
         buildEmailFormField(),
         SizedBox(
@@ -55,6 +60,15 @@ class _LoginFormState extends State<LoginForm> {
         buildPasswordFormField(),
         SizedBox(
           height: getProportionateScreenHeight(20),
+        ),
+        FormError(errors: errors),
+        DefaultButton(
+          text: "Continue",
+          press: () {
+            if (_formKey.currentState!.validate()) {
+              _formKey.currentState!.save();
+            }
+          },
         )
       ]),
     );
@@ -85,6 +99,15 @@ class _LoginFormState extends State<LoginForm> {
   TextFormField buildEmailFormField() {
     return TextFormField(
       keyboardType: TextInputType.emailAddress,
+      validator: (value) {
+        if (value!.isEmpty && errors.contains(txtEmailNullErr)) {
+          setState(() {
+            errors.add(txtEmailNullErr);
+          });
+        }
+
+        return null;
+      },
       decoration: InputDecoration(
           labelText: "Email",
           hintText: "Enter your email",

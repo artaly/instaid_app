@@ -13,3 +13,5 @@ const textColor = Color(0xFF757575);
 const String txtEmailNullErr = "Please enter your email";
 const String txtInvalidEmailErr = "Please enter valid email";
 const String txtPassNullErr = "Please enter your password";
+final RegExp emailValidatorRegExp =
+    RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
