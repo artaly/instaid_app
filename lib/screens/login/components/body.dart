@@ -79,6 +79,20 @@ class _LoginFormState extends State<LoginForm> {
   TextFormField buildPasswordFormField() {
     return TextFormField(
       obscureText: true,
+      validator: (value) {
+        if (value!.isEmpty && errors.contains(txtPassNullErr)) {
+          setState(() {
+            errors.add(txtPassNullErr);
+          });
+          // } else if (!emailValidatorRegExp.hasMatch(value) &&
+          //     !errors.contains(txtInvalidEmailErr)) {
+          //   setState(() {
+          //     errors.add(txtInvalidEmailErr);
+          //   });
+        }
+
+        return null;
+      },
       decoration: InputDecoration(
           labelText: "Password",
           hintText: "Enter your password",

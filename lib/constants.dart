@@ -15,3 +15,4 @@ const String txtInvalidEmailErr = "Please enter valid email";
 const String txtPassNullErr = "Please enter your password";
 final RegExp emailValidatorRegExp =
     RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+const String txtWrongPassword = "Wrong password";
