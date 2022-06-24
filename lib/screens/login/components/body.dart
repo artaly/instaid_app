@@ -49,6 +49,7 @@ class _LoginFormState extends State<LoginForm> {
   final _formKey = GlobalKey<FormState>();
   String? email;
   String? password;
+  bool? remember = false;
   final List<String> errors = [];
   @override
   Widget build(BuildContext context) {
@@ -67,8 +68,12 @@ class _LoginFormState extends State<LoginForm> {
         Row(
           children: [
             Checkbox(
-              value: false,
-              onChanged: (value) {},
+              value: remember,
+              onChanged: (value) {
+                setState(() {
+                  remember = value;
+                });
+              },
             ),
             Text("Remember me"),
             Spacer(),
