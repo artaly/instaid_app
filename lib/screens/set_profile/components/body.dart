@@ -1,12 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:instaid_dev/components/default_button.dart';
-import 'package:instaid_dev/components/form_error.dart';
 import 'package:instaid_dev/constants.dart';
 import 'package:instaid_dev/size_config.dart';
-
-import '../../../components/custom_suffix_icon.dart';
 import 'setup_profile_form.dart';
 
 class Body extends StatelessWidget {
