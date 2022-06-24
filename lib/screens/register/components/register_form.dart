@@ -5,6 +5,7 @@ import 'package:instaid_dev/components/default_button.dart';
 import 'package:instaid_dev/components/form_error.dart';
 import 'package:instaid_dev/constants.dart';
 import 'package:instaid_dev/screens/home.dart';
+import 'package:instaid_dev/screens/set_profile/set_profile.dart';
 import 'package:instaid_dev/size_config.dart';
 
 import '../../../components/custom_suffix_icon.dart';
@@ -60,7 +61,7 @@ class _RegisterFormState extends State<RegisterForm> {
               if (_formKey.currentState!.validate()) {
                 //_formKey.currentState!.save();
                 // if all are valid then go to success screen
-                //Navigator.pushNamed(context, HomeScreen.routeName);
+                Navigator.pushNamed(context, SetupProfile.routeName);
               }
             },
           )
