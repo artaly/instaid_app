@@ -20,6 +20,9 @@ final RegExp emailValidatorRegExp =
 const String txtWrongPassword = "Wrong password";
 const String txtNotMatchPw = "Password does not match";
 const String txtPasswordShort = "Password too short";
+const String txtNameNull = "Please enter your name";
+const String txtPhoneNoNull = "Please enter your phone number";
+const String txtAddressNull = "Please enter your address";
 
 final headingStyle = TextStyle(
     fontSize: getProportionateScreenWidth(28),
