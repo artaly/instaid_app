@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:instaid_dev/components/custom_suffix_icon.dart';
 import 'package:instaid_dev/components/form_error.dart';
+import 'package:instaid_dev/screens/login/forgot_password.dart';
 import 'package:instaid_dev/size_config.dart';
 import 'package:instaid_dev/constants.dart';
 import 'package:instaid_dev/components/default_button.dart';
@@ -35,23 +36,38 @@ class Body extends StatelessWidget {
               SizedBox(height: SizeConfig.screenHeight * 0.08),
               LoginForm(),
               SizedBox(height: SizeConfig.screenHeight * 0.04),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Don't have an account? ",
-                    style: TextStyle(fontSize: getProportionateScreenWidth(16)),
-                  ),
-                  Text("Register",
-                      style: TextStyle(
-                          fontSize: getProportionateScreenWidth(16),
-                          color: primaryColorBlue)),
-                ],
-              ),
+              NoAccount(),
             ]),
           ),
         ),
       ),
+    );
+  }
+}
+
+class NoAccount extends StatelessWidget {
+  const NoAccount({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          "Don't have an account? ",
+          style: TextStyle(fontSize: getProportionateScreenWidth(16)),
+        ),
+        GestureDetector(
+          onTap: () =>
+              Navigator.popAndPushNamed(context, ForgotPassword.routeName),
+          child: Text("Register",
+              style: TextStyle(
+                  fontSize: getProportionateScreenWidth(16),
+                  color: primaryColorBlue)),
+        ),
+      ],
     );
   }
 }
