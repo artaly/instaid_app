@@ -64,6 +64,20 @@ class _LoginFormState extends State<LoginForm> {
           height: getProportionateScreenHeight(20),
         ),
         FormError(errors: errors),
+        Row(
+          children: [
+            Checkbox(
+              value: false,
+              onChanged: (value) {},
+            ),
+            Text("Remember me"),
+            Spacer(),
+            Text(
+              "Forgot password",
+              style: TextStyle(decoration: TextDecoration.underline),
+            )
+          ],
+        ),
         DefaultButton(
           text: "Continue",
           press: () {
