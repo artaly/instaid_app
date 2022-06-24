@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../constants.dart';
 import '../size_config.dart';
+import 'package:instaid_dev/screens/register/register.dart';
 
 class NoAccount extends StatelessWidget {
   const NoAccount({
@@ -18,7 +19,7 @@ class NoAccount extends StatelessWidget {
           style: TextStyle(fontSize: getProportionateScreenWidth(16)),
         ),
         GestureDetector(
-          onTap: () {},
+          onTap: () => Navigator.pushNamed(context, RegisterScreen.routeName),
           child: Text("Register",
               style: TextStyle(
                   fontSize: getProportionateScreenWidth(16),
