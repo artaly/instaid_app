@@ -18,6 +18,8 @@ const String txtPassNullErr = "Please enter your password";
 final RegExp emailValidatorRegExp =
     RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
 const String txtWrongPassword = "Wrong password";
+const String txtNotMatchPw = "Password does not match";
+const String txtPasswordShort = "Password too short";
 
 final headingStyle = TextStyle(
     fontSize: getProportionateScreenWidth(28),
