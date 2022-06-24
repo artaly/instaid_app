@@ -18,20 +18,38 @@ class Body extends StatelessWidget {
         child: Padding(
           padding:
               EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-          child: Column(children: [
-            Text(
-              "Welcome back",
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: getProportionateScreenWidth(28),
-                  fontWeight: FontWeight.bold),
-            ),
-            Text(
-              "Sign in with your email and password",
-              textAlign: TextAlign.center,
-            ),
-            LoginForm(),
-          ]),
+          child: SingleChildScrollView(
+            child: Column(children: [
+              SizedBox(height: SizeConfig.screenHeight * 0.04),
+              Text(
+                "Welcome back",
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: getProportionateScreenWidth(28),
+                    fontWeight: FontWeight.bold),
+              ),
+              Text(
+                "Sign in with your email and password",
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: SizeConfig.screenHeight * 0.08),
+              LoginForm(),
+              SizedBox(height: SizeConfig.screenHeight * 0.04),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Don't have an account? ",
+                    style: TextStyle(fontSize: getProportionateScreenWidth(16)),
+                  ),
+                  Text("Register",
+                      style: TextStyle(
+                          fontSize: getProportionateScreenWidth(16),
+                          color: primaryColorBlue)),
+                ],
+              ),
+            ]),
+          ),
         ),
       ),
     );
@@ -69,6 +87,7 @@ class _LoginFormState extends State<LoginForm> {
           children: [
             Checkbox(
               value: remember,
+              activeColor: primaryColorBlue,
               onChanged: (value) {
                 setState(() {
                   remember = value;
@@ -83,6 +102,7 @@ class _LoginFormState extends State<LoginForm> {
             )
           ],
         ),
+        SizedBox(height: SizeConfig.screenHeight * 0.02),
         DefaultButton(
           text: "Continue",
           press: () {
@@ -90,7 +110,7 @@ class _LoginFormState extends State<LoginForm> {
               _formKey.currentState!.save();
             }
           },
-        )
+        ),
       ]),
     );
   }
