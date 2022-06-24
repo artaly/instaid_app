@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:instaid_dev/screens/login/login.dart';
 import 'package:instaid_dev/screens/login/forgot_password.dart';
 import 'package:flutter/widgets.dart';
