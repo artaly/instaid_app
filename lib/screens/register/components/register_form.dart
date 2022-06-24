@@ -21,17 +21,19 @@ class _RegisterFormState extends State<RegisterForm> {
   final List<String> errors = [];
 
   void addError({required String error}) {
-    if (!errors.contains(error))
+    if (!errors.contains(error)) {
       setState(() {
         errors.add(error);
       });
+    }
   }
 
   void removeError({required String error}) {
-    if (errors.contains(error))
+    if (errors.contains(error)) {
       setState(() {
         errors.remove(error);
       });
+    }
   }
 
   @override
@@ -45,6 +47,9 @@ class _RegisterFormState extends State<RegisterForm> {
           buildPasswordFormField(),
           SizedBox(height: getProportionateScreenHeight(30)),
           buildConfirmPasswordField(),
+          SizedBox(
+            height: getProportionateScreenHeight(15),
+          ),
           FormError(errors: errors),
           SizedBox(height: getProportionateScreenHeight(40)),
           DefaultButton(
@@ -77,10 +82,8 @@ class _RegisterFormState extends State<RegisterForm> {
       validator: (value) {
         if (value!.isEmpty) {
           addError(error: txtPassNullErr);
-          return "";
         } else if ((password != value)) {
           addError(error: txtNotMatchPw);
-          return "";
         }
         return null;
       },
@@ -118,7 +121,6 @@ class _RegisterFormState extends State<RegisterForm> {
       validator: (value) {
         if (value!.isEmpty) {
           addError(error: txtPassNullErr);
-          return "";
         } else if (value.length < 8) {
           addError(error: txtPasswordShort);
         }
@@ -153,16 +155,13 @@ class _RegisterFormState extends State<RegisterForm> {
         } else if (emailValidatorRegExp.hasMatch(value)) {
           removeError(error: txtInvalidEmailErr);
         }
-
         return null;
       },
       validator: (value) {
         if (value!.isEmpty) {
           addError(error: txtEmailNullErr);
-          return "";
         } else if (!emailValidatorRegExp.hasMatch(value)) {
           addError(error: txtInvalidEmailErr);
-          return "";
         }
 
         return null;
