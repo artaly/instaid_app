@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'size_config.dart';
+
 const primaryColorBlue = Color(0xFF699EAD);
 const primaryColorRed = Color(0xFFDE4E37);
 const primaryDark = Color(0xFF3F3F3F);
@@ -16,3 +18,9 @@ const String txtPassNullErr = "Please enter your password";
 final RegExp emailValidatorRegExp =
     RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
 const String txtWrongPassword = "Wrong password";
+
+final headingStyle = TextStyle(
+    fontSize: getProportionateScreenWidth(28),
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+    height: 1.5);
