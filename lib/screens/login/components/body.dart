@@ -7,6 +7,8 @@ import 'package:instaid_dev/size_config.dart';
 import 'package:instaid_dev/constants.dart';
 import 'package:instaid_dev/components/default_button.dart';
 
+import '../../../components/no_account.dart';
+
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
 
@@ -41,33 +43,6 @@ class Body extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class NoAccount extends StatelessWidget {
-  const NoAccount({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          "Don't have an account? ",
-          style: TextStyle(fontSize: getProportionateScreenWidth(16)),
-        ),
-        GestureDetector(
-          onTap: () =>
-              Navigator.popAndPushNamed(context, ForgotPassword.routeName),
-          child: Text("Register",
-              style: TextStyle(
-                  fontSize: getProportionateScreenWidth(16),
-                  color: primaryColorBlue)),
-        ),
-      ],
     );
   }
 }
