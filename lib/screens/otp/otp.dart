@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:instaid_dev/screens/otp/components/body.dart';
 
 class OTPScreen extends StatelessWidget {
-  static String routeName = "/login";
+  static String routeName = "/otp";
   const OTPScreen({Key? key}) : super(key: key);
 
   @override
