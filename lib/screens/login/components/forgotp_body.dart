@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:instaid_dev/components/custom_suffix_icon.dart';
 import 'package:instaid_dev/components/default_button.dart';
 import 'package:instaid_dev/components/form_error.dart';
@@ -55,8 +57,12 @@ class ForgotPasswordForm extends StatefulWidget {
 
 class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
   final _formKey = GlobalKey<FormState>();
+
   List<String> errors = [];
   String? email;
+  late String _email;
+  final auth = FirebaseAuth.instance;
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -66,19 +72,25 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
           TextFormField(
             keyboardType: TextInputType.emailAddress,
             onSaved: (newValue) => email = newValue,
-            onChanged: (value) {
-              if (value.isNotEmpty && errors.contains(txtEmailNullErr)) {
-                setState(() {
-                  errors.remove(txtEmailNullErr);
-                });
-              } else if (emailValidatorRegExp.hasMatch(value) &&
-                  errors.contains(txtInvalidEmailErr)) {
-                setState(() {
-                  errors.remove(txtInvalidEmailErr);
-                });
-              }
+            // onChanged: (value) {
+            //   if (value.isNotEmpty) {
+            //     setState(() {
+            //       errors.remove(txtEmailNullErr);
+            //       _email = value.trim();
+            //     });
+            //   } else if (emailValidatorRegExp.hasMatch(value) &&
+            //       errors.contains(txtInvalidEmailErr)) {
+            //     setState(() {
+            //       errors.remove(txtInvalidEmailErr);
+            //     });
+            //   }
 
-              return null;
+            //   return null;
+            // },
+            onChanged: (value) {
+              setState(() {
+                _email = value.trim();
+              });
             },
             validator: (value) {
               if (value!.isEmpty && errors.contains(txtEmailNullErr)) {
@@ -116,11 +128,11 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
           FormError(errors: errors),
           SizedBox(height: SizeConfig.screenHeight * 0.1),
           DefaultButton(
-            text: "Continue",
+            text: "Send request",
             press: () {
-              if (_formKey.currentState!.validate()) {
-                // Do what you want to do
-              }
+              auth.sendPasswordResetEmail(email: _email);
+              Fluttertoast.showToast(msg: "Password reset link sent!");
+              Navigator.of(context).pop();
             },
           ),
           SizedBox(height: SizeConfig.screenHeight * 0.1),
