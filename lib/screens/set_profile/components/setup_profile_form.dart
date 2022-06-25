@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instaid_dev/screens/otp/otp.dart';
 
 import '../../../components/custom_suffix_icon.dart';
 import '../../../components/default_button.dart';
@@ -66,7 +67,9 @@ class _SetupProfileFormState extends State<SetupProfileForm> {
         DefaultButton(
           text: "Continue",
           press: () {
-            if (_formKey.currentState!.validate()) {}
+            if (_formKey.currentState!.validate()) {
+              Navigator.pushNamed(context, OTPScreen.routeName);
+            }
           },
         )
       ]),
