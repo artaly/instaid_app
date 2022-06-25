@@ -53,11 +53,10 @@ class _OTPFormState extends State<OTPForm> {
                 width: getProportionateScreenWidth(60),
                 child: TextFormField(
                   autofocus: true,
-                  obscureText: true,
                   style: TextStyle(fontSize: 24),
                   keyboardType: TextInputType.number,
                   textAlign: TextAlign.center,
-                  decoration: OTPInputDecoration,
+                  decoration: otpInputDecoration,
                   onChanged: (value) {
                     nextField(value, pin2FocusNode);
                   },
@@ -67,11 +66,10 @@ class _OTPFormState extends State<OTPForm> {
                 width: getProportionateScreenWidth(60),
                 child: TextFormField(
                   focusNode: pin2FocusNode,
-                  obscureText: true,
                   style: TextStyle(fontSize: 24),
                   keyboardType: TextInputType.number,
                   textAlign: TextAlign.center,
-                  decoration: OTPInputDecoration,
+                  decoration: otpInputDecoration,
                   onChanged: (value) => nextField(value, pin3FocusNode),
                 ),
               ),
@@ -79,11 +77,10 @@ class _OTPFormState extends State<OTPForm> {
                 width: getProportionateScreenWidth(60),
                 child: TextFormField(
                   focusNode: pin3FocusNode,
-                  obscureText: true,
                   style: TextStyle(fontSize: 24),
                   keyboardType: TextInputType.number,
                   textAlign: TextAlign.center,
-                  decoration: OTPInputDecoration,
+                  decoration: otpInputDecoration,
                   onChanged: (value) => nextField(value, pin4FocusNode),
                 ),
               ),
@@ -91,11 +88,10 @@ class _OTPFormState extends State<OTPForm> {
                 width: getProportionateScreenWidth(60),
                 child: TextFormField(
                   focusNode: pin4FocusNode,
-                  obscureText: true,
                   style: TextStyle(fontSize: 24),
                   keyboardType: TextInputType.number,
                   textAlign: TextAlign.center,
-                  decoration: OTPInputDecoration,
+                  decoration: otpInputDecoration,
                   onChanged: (value) {
                     if (value.length == 1) {
                       pin4FocusNode!.unfocus();
