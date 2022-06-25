@@ -30,7 +30,7 @@ final headingStyle = TextStyle(
     color: Colors.black,
     height: 1.5);
 
-final otpInputDecoration = InputDecoration(
+final OTPInputDecoration = InputDecoration(
   contentPadding:
       EdgeInsets.symmetric(vertical: getProportionateScreenWidth(15)),
   border: outlineInputBorder(),
