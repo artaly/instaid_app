@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instaid_dev/screens/otp/components/otp_form.dart';
 import 'package:instaid_dev/size_config.dart';
 
 import '../../../constants.dart';
@@ -21,7 +22,7 @@ class Body extends StatelessWidget {
               ),
               Text("We sent your code to +1 898 860 ***"),
               buildTimer(),
-              //OtpForm(),
+              OTPForm(),
               SizedBox(height: SizeConfig.screenHeight * 0.1),
               GestureDetector(
                 onTap: () {
