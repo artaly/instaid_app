@@ -63,7 +63,7 @@ class _RegisterFormState extends State<RegisterForm> {
           //FormError(errors: errors),
           //SizedBox(height: getProportionateScreenHeight(40)),
           DefaultButton(
-            text: "Continue",
+            text: "Register",
             press: () {
               if (_formKey.currentState!.validate()) {
                 //_formKey.currentState!.save();
