@@ -5,7 +5,7 @@ import 'package:instaid_dev/components/default_button.dart';
 import 'package:instaid_dev/components/form_error.dart';
 import 'package:instaid_dev/constants.dart';
 import 'package:instaid_dev/screens/home.dart';
-import 'package:instaid_dev/screens/set_profile/set_profile.dart';
+import 'package:instaid_dev/screens/login/login.dart';
 import 'package:instaid_dev/size_config.dart';
 
 import '../../../components/custom_suffix_icon.dart';
@@ -19,7 +19,9 @@ class _RegisterFormState extends State<RegisterForm> {
   final _formKey = GlobalKey<FormState>();
   String? email;
   String? password;
-  String? confirmPassword;
+  String? firstName;
+  String? lastName;
+  String? phoneNumber;
   bool remember = false;
   final List<String> errors = [];
 
@@ -45,67 +47,33 @@ class _RegisterFormState extends State<RegisterForm> {
       key: _formKey,
       child: Column(
         children: [
+          buildFNameFormField(),
+          SizedBox(height: getProportionateScreenHeight(30)),
+          buildLNameFormField(),
+          SizedBox(height: getProportionateScreenHeight(30)),
+          buildPNoFormField(),
+          SizedBox(height: getProportionateScreenHeight(30)),
           buildEmailFormField(),
           SizedBox(height: getProportionateScreenHeight(30)),
           buildPasswordFormField(),
           SizedBox(height: getProportionateScreenHeight(30)),
-          buildConfirmPasswordField(),
           SizedBox(
             height: getProportionateScreenHeight(15),
           ),
-          FormError(errors: errors),
-          SizedBox(height: getProportionateScreenHeight(40)),
+          //FormError(errors: errors),
+          //SizedBox(height: getProportionateScreenHeight(40)),
           DefaultButton(
             text: "Continue",
             press: () {
               if (_formKey.currentState!.validate()) {
                 //_formKey.currentState!.save();
                 // if all are valid then go to success screen
-                Navigator.pushNamed(context, SetupProfile.routeName);
+                Navigator.pushNamed(context, LoginScreen.routeName);
               }
             },
           )
         ],
       ),
-    );
-  }
-
-  TextFormField buildConfirmPasswordField() {
-    return TextFormField(
-      obscureText: true,
-      onSaved: (newValue) => confirmPassword = newValue,
-      onChanged: (value) {
-        if (value.isNotEmpty) {
-          removeError(error: txtPassNullErr);
-        } else if (value.isNotEmpty && password == confirmPassword) {
-          removeError(error: txtNotMatchPw);
-        }
-        confirmPassword = value;
-      },
-      validator: (value) {
-        if (value!.isEmpty) {
-          addError(error: txtPassNullErr);
-        } else if ((password != value)) {
-          addError(error: txtNotMatchPw);
-        }
-        return null;
-      },
-      decoration: InputDecoration(
-          labelText: "Confirm Password",
-          hintText: "Re-enter your password",
-          floatingLabelBehavior: FloatingLabelBehavior.always,
-          suffixIcon: CustomSuffixIcon(svgIcon: "assets/svg/lock.svg"),
-          contentPadding: EdgeInsets.symmetric(horizontal: 42, vertical: 20),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(28),
-            borderSide: BorderSide(color: textColor),
-            gapPadding: 10,
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(28),
-            borderSide: BorderSide(color: textColor),
-            gapPadding: 10,
-          )),
     );
   }
 
@@ -174,6 +142,111 @@ class _RegisterFormState extends State<RegisterForm> {
           hintText: "Enter your email",
           floatingLabelBehavior: FloatingLabelBehavior.always,
           suffixIcon: CustomSuffixIcon(svgIcon: "assets/svg/mail.svg"),
+          contentPadding: EdgeInsets.symmetric(horizontal: 42, vertical: 20),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(28),
+            borderSide: BorderSide(color: textColor),
+            gapPadding: 10,
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(28),
+            borderSide: BorderSide(color: textColor),
+            gapPadding: 10,
+          )),
+    );
+  }
+
+  TextFormField buildPNoFormField() {
+    return TextFormField(
+      keyboardType: TextInputType.number,
+      onSaved: (newValue) => phoneNumber = newValue,
+      onChanged: (value) {
+        if (value.isNotEmpty) {
+          removeError(error: txtPhoneNoNull);
+        }
+        return null;
+      },
+      validator: (value) {
+        if (value!.isEmpty) {
+          addError(error: txtPhoneNoNull);
+        }
+        return null;
+      },
+      decoration: InputDecoration(
+          labelText: "Phone Number",
+          hintText: "Enter your phone number",
+          floatingLabelBehavior: FloatingLabelBehavior.always,
+          suffixIcon: CustomSuffixIcon(svgIcon: "assets/svg/phone.svg"),
+          contentPadding: EdgeInsets.symmetric(horizontal: 42, vertical: 20),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(28),
+            borderSide: BorderSide(color: textColor),
+            gapPadding: 10,
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(28),
+            borderSide: BorderSide(color: textColor),
+            gapPadding: 10,
+          )),
+    );
+  }
+
+  TextFormField buildLNameFormField() {
+    return TextFormField(
+      keyboardType: TextInputType.name,
+      onSaved: (newValue) => lastName = newValue,
+      onChanged: (value) {
+        if (value.isNotEmpty) {
+          removeError(error: txtNameNull);
+        }
+        return null;
+      },
+      validator: (value) {
+        if (value!.isEmpty) {
+          addError(error: txtNameNull);
+        }
+        return null;
+      },
+      decoration: InputDecoration(
+          labelText: "Last Name",
+          hintText: "Enter your last name",
+          floatingLabelBehavior: FloatingLabelBehavior.always,
+          suffixIcon: CustomSuffixIcon(svgIcon: "assets/svg/user.svg"),
+          contentPadding: EdgeInsets.symmetric(horizontal: 42, vertical: 20),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(28),
+            borderSide: BorderSide(color: textColor),
+            gapPadding: 10,
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(28),
+            borderSide: BorderSide(color: textColor),
+            gapPadding: 10,
+          )),
+    );
+  }
+
+  TextFormField buildFNameFormField() {
+    return TextFormField(
+      keyboardType: TextInputType.name,
+      onSaved: (newValue) => firstName = newValue,
+      onChanged: (value) {
+        if (value.isNotEmpty) {
+          removeError(error: txtNameNull);
+        }
+        return null;
+      },
+      validator: (value) {
+        if (value!.isEmpty) {
+          addError(error: txtNameNull);
+        }
+        return null;
+      },
+      decoration: InputDecoration(
+          labelText: "First Name",
+          hintText: "Enter your first name",
+          floatingLabelBehavior: FloatingLabelBehavior.always,
+          suffixIcon: CustomSuffixIcon(svgIcon: "assets/svg/user.svg"),
           contentPadding: EdgeInsets.symmetric(horizontal: 42, vertical: 20),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(28),

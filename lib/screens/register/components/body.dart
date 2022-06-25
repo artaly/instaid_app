@@ -21,7 +21,7 @@ class Body extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                SizedBox(height: SizeConfig.screenHeight * 0.02),
+                SizedBox(height: SizeConfig.screenHeight * 0.01),
                 Text(
                   "Register Account",
                   style: headingStyle,
@@ -30,7 +30,7 @@ class Body extends StatelessWidget {
                   "Complete the following details in\norder to open an account",
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(height: SizeConfig.screenHeight * 0.07),
+                SizedBox(height: SizeConfig.screenHeight * 0.06),
                 RegisterForm(),
                 SizedBox(height: SizeConfig.screenHeight * 0.07),
                 //SizedBox(height: getProportionateScreenHeight(20)),
