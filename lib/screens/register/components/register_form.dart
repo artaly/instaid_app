@@ -292,7 +292,7 @@ class _RegisterFormState extends State<RegisterForm> {
             errorMessage = "Your email address appears to be malformed.";
             break;
           case "wrong-password":
-            errorMessage = "Your password is wrong.";
+            errorMessage = "Wrong password";
             break;
           case "user-not-found":
             errorMessage = "User with this email doesn't exist.";
