@@ -23,7 +23,15 @@ class _RegisterFormState extends State<RegisterForm> {
   String? firstName;
   String? lastName;
   String? phoneNumber;
-  bool remember = false;
+
+  String? errorMessage;
+
+  final firstNameEditingController = new TextEditingController();
+  final lastNameEditingController = new TextEditingController();
+  final emailEditingController = new TextEditingController();
+  final passwordEditingController = new TextEditingController();
+  final phoneNumberEditingController = new TextEditingController();
+
   final List<String> errors = [];
 
   void addError({required String error}) {
