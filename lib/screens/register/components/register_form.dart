@@ -2,11 +2,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:instaid_dev/components/default_button.dart';
-import 'package:instaid_dev/components/form_error.dart';
 import 'package:instaid_dev/constants.dart';
+import 'package:instaid_dev/models/user_model.dart';
 import 'package:instaid_dev/screens/home.dart';
 import 'package:instaid_dev/screens/login/login.dart';
 import 'package:instaid_dev/screens/otp/otp.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+
 import 'package:instaid_dev/size_config.dart';
 
 import '../../../components/custom_suffix_icon.dart';
@@ -17,6 +21,7 @@ class RegisterForm extends StatefulWidget {
 }
 
 class _RegisterFormState extends State<RegisterForm> {
+  final _auth = FirebaseAuth.instance;
   final _formKey = GlobalKey<FormState>();
   String? email;
   String? password;
@@ -74,11 +79,8 @@ class _RegisterFormState extends State<RegisterForm> {
           DefaultButton(
             text: "Register",
             press: () {
-              if (_formKey.currentState!.validate()) {
-                //_formKey.currentState!.save();
-                // if all are valid then go to success screen
-                Navigator.pushNamed(context, OTPScreen.routeName);
-              }
+              register(
+                  emailEditingController.text, passwordEditingController.text);
             },
           )
         ],
@@ -89,6 +91,7 @@ class _RegisterFormState extends State<RegisterForm> {
   TextFormField buildPasswordFormField() {
     return TextFormField(
       obscureText: true,
+      controller: passwordEditingController,
       onSaved: (newValue) => password = newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
@@ -127,6 +130,7 @@ class _RegisterFormState extends State<RegisterForm> {
 
   TextFormField buildEmailFormField() {
     return TextFormField(
+      controller: emailEditingController,
       keyboardType: TextInputType.emailAddress,
       onSaved: (newValue) => email = newValue,
       onChanged: (value) {
@@ -167,6 +171,7 @@ class _RegisterFormState extends State<RegisterForm> {
 
   TextFormField buildPNoFormField() {
     return TextFormField(
+      controller: phoneNumberEditingController,
       keyboardType: TextInputType.number,
       onSaved: (newValue) => phoneNumber = newValue,
       onChanged: (value) {
@@ -202,6 +207,7 @@ class _RegisterFormState extends State<RegisterForm> {
 
   TextFormField buildLNameFormField() {
     return TextFormField(
+      controller: lastNameEditingController,
       keyboardType: TextInputType.name,
       onSaved: (newValue) => lastName = newValue,
       onChanged: (value) {
@@ -237,6 +243,7 @@ class _RegisterFormState extends State<RegisterForm> {
 
   TextFormField buildFNameFormField() {
     return TextFormField(
+      controller: firstNameEditingController,
       keyboardType: TextInputType.name,
       onSaved: (newValue) => firstName = newValue,
       onChanged: (value) {
@@ -268,5 +275,72 @@ class _RegisterFormState extends State<RegisterForm> {
             gapPadding: 10,
           )),
     );
+  }
+
+  void register(String email, String password) async {
+    if (_formKey.currentState!.validate()) {
+      try {
+        await _auth
+            .createUserWithEmailAndPassword(email: email, password: password)
+            .then((value) => {postDetailsToFirestore()})
+            .catchError((e) {
+          Fluttertoast.showToast(msg: e!.message);
+        });
+      } on FirebaseAuthException catch (error) {
+        switch (error.code) {
+          case "invalid-email":
+            errorMessage = "Your email address appears to be malformed.";
+            break;
+          case "wrong-password":
+            errorMessage = "Your password is wrong.";
+            break;
+          case "user-not-found":
+            errorMessage = "User with this email doesn't exist.";
+            break;
+          case "user-disabled":
+            errorMessage = "User with this email has been disabled.";
+            break;
+          case "too-many-requests":
+            errorMessage = "Too many requests";
+            break;
+          case "operation-not-allowed":
+            errorMessage = "Signing in with Email and Password is not enabled.";
+            break;
+          default:
+            errorMessage = "An undefined Error happened.";
+        }
+        Fluttertoast.showToast(msg: errorMessage!);
+        print(error.code);
+      }
+    }
+  }
+
+  postDetailsToFirestore() async {
+    // calling our firestore
+    // calling our user model
+    // sedning these values
+
+    FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+    User? user = _auth.currentUser;
+
+    UserModel userModel = UserModel();
+
+    // writing all the values
+    userModel.email = user!.email;
+    userModel.userID = user.uid;
+    userModel.firstName = firstNameEditingController.text;
+    userModel.lastName = lastNameEditingController.text;
+    userModel.phoneNumber = phoneNumberEditingController.text;
+
+    await firebaseFirestore
+        .collection("registered_user")
+        .doc(user.uid)
+        .set(userModel.toMap());
+    Fluttertoast.showToast(msg: "Account created successfully :) ");
+
+    Navigator.pushAndRemoveUntil(
+        (context),
+        MaterialPageRoute(builder: (context) => LoginScreen()),
+        (route) => false);
   }
 }
