@@ -336,7 +336,7 @@ class _RegisterFormState extends State<RegisterForm> {
         .collection("registered_user")
         .doc(user.uid)
         .set(userModel.toMap());
-    Fluttertoast.showToast(msg: "Account created successfully :) ");
+    Fluttertoast.showToast(msg: "Account created successfully!");
        
     // Test code. After register should be OTP Screen
     // Navigator.pushAndRemoveUntil(
