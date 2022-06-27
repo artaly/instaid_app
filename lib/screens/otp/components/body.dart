@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:instaid_dev/screens/otp/components/otp_form.dart';
+import 'package:instaid_dev/screens/register/components/register_form.dart';
+import 'package:instaid_dev/screens/register/register.dart';
 import 'package:instaid_dev/size_config.dart';
 
 import '../../../constants.dart';
@@ -20,7 +22,8 @@ class Body extends StatelessWidget {
                 "OTP Verification",
                 style: headingStyle,
               ),
-              Text("We sent your code to +1 898 860 ***"),
+              Text("We sent your code to"),
+              Text("test"),
               buildTimer(),
               OTPForm(),
               SizedBox(height: SizeConfig.screenHeight * 0.1),

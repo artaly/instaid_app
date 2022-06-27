@@ -1,8 +1,13 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import '../../../components/default_button.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class OTPForm extends StatefulWidget {
   const OTPForm({
@@ -14,9 +19,18 @@ class OTPForm extends StatefulWidget {
 }
 
 class _OTPFormState extends State<OTPForm> {
+  final _auth = FirebaseAuth.instance;
+  final _formKey = GlobalKey<FormState>();
   FocusNode? pin2FocusNode;
   FocusNode? pin3FocusNode;
   FocusNode? pin4FocusNode;
+
+  TextEditingController pin1 = TextEditingController();
+  TextEditingController pin2 = TextEditingController();
+  TextEditingController pin3 = TextEditingController();
+  TextEditingController pin4 = TextEditingController();
+
+  String? userOTP;
 
   @override
   void initState() {
@@ -40,6 +54,24 @@ class _OTPFormState extends State<OTPForm> {
     }
   }
 
+  // void verifyOTP() async {
+
+  //   PhoneAuthCredential credential = PhoneAuthProvider.credential(verificationId: verificationID, smsCode: userOTP.text);
+
+  //   await _auth.signInWithCredential(credential).then((value){
+  //     print("You are logged in successfully");
+  //     Fluttertoast.showToast(
+  //         msg: "You are logged in successfully",
+  //         toastLength: Toast.LENGTH_SHORT,
+  //         gravity: ToastGravity.CENTER,
+  //         timeInSecForIosWeb: 1,
+  //         backgroundColor: Colors.red,
+  //         textColor: Colors.white,
+  //         fontSize: 16.0
+  //     );
+  //   });
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -52,6 +84,7 @@ class _OTPFormState extends State<OTPForm> {
               SizedBox(
                 width: getProportionateScreenWidth(60),
                 child: TextFormField(
+                  controller: pin1,
                   autofocus: true,
                   style: TextStyle(fontSize: 24),
                   keyboardType: TextInputType.number,
@@ -65,6 +98,7 @@ class _OTPFormState extends State<OTPForm> {
               SizedBox(
                 width: getProportionateScreenWidth(60),
                 child: TextFormField(
+                  controller: pin2,
                   focusNode: pin2FocusNode,
                   style: TextStyle(fontSize: 24),
                   keyboardType: TextInputType.number,
@@ -76,6 +110,7 @@ class _OTPFormState extends State<OTPForm> {
               SizedBox(
                 width: getProportionateScreenWidth(60),
                 child: TextFormField(
+                  controller: pin3,
                   focusNode: pin3FocusNode,
                   style: TextStyle(fontSize: 24),
                   keyboardType: TextInputType.number,
@@ -87,6 +122,7 @@ class _OTPFormState extends State<OTPForm> {
               SizedBox(
                 width: getProportionateScreenWidth(60),
                 child: TextFormField(
+                  controller: pin4,
                   focusNode: pin4FocusNode,
                   style: TextStyle(fontSize: 24),
                   keyboardType: TextInputType.number,
@@ -105,7 +141,11 @@ class _OTPFormState extends State<OTPForm> {
           SizedBox(height: SizeConfig.screenHeight * 0.15),
           DefaultButton(
             text: "Continue",
-            press: () {},
+            press: () {
+              setState(() {
+                userOTP = pin1.text + pin2.text + pin3.text + pin4.text;
+              });
+            },
           )
         ],
       ),
