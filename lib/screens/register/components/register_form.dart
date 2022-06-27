@@ -343,5 +343,10 @@ class _RegisterFormState extends State<RegisterForm> {
     //     (context),
     //     MaterialPageRoute(builder: (context) => LoginScreen()),
     //     (route) => false);
+
+    Navigator.pushAndRemoveUntil(
+        (context),
+        MaterialPageRoute(builder: (context) => OTPScreen()),
+        (route) => false);
   }
 }
