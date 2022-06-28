@@ -9,16 +9,26 @@ import '../../../size_config.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+enum Status { Waiting, Error }
+
 class OTPForm extends StatefulWidget {
   const OTPForm({
     Key? key,
+    this.number,
   }) : super(key: key);
 
+  final number;
+
   @override
-  _OTPFormState createState() => _OTPFormState();
+  _OTPFormState createState() => _OTPFormState(number);
 }
 
 class _OTPFormState extends State<OTPForm> {
+  final phoneNumber;
+  var _status = Status.Waiting;
+  var _verificationId;
+
+  _OTPFormState(this.phoneNumber);
   final _auth = FirebaseAuth.instance;
   final _formKey = GlobalKey<FormState>();
   FocusNode? pin2FocusNode;
@@ -53,24 +63,6 @@ class _OTPFormState extends State<OTPForm> {
       focusNode!.requestFocus();
     }
   }
-
-  // void verifyOTP() async {
-
-  //   PhoneAuthCredential credential = PhoneAuthProvider.credential(verificationId: verificationID, smsCode: userOTP.text);
-
-  //   await _auth.signInWithCredential(credential).then((value){
-  //     print("You are logged in successfully");
-  //     Fluttertoast.showToast(
-  //         msg: "You are logged in successfully",
-  //         toastLength: Toast.LENGTH_SHORT,
-  //         gravity: ToastGravity.CENTER,
-  //         timeInSecForIosWeb: 1,
-  //         backgroundColor: Colors.red,
-  //         textColor: Colors.white,
-  //         fontSize: 16.0
-  //     );
-  //   });
-  // }
 
   @override
   Widget build(BuildContext context) {
