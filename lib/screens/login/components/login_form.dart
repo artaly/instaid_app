@@ -10,7 +10,7 @@ import 'package:instaid_dev/screens/login/forgot_password.dart';
 import 'package:instaid_dev/size_config.dart';
 import 'package:instaid_dev/constants.dart';
 
-import '../../home.dart';
+import '../../home/home.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({Key? key}) : super(key: key);
