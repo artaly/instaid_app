@@ -6,6 +6,7 @@ import 'package:instaid_dev/components/default_button.dart';
 import 'package:instaid_dev/components/form_error.dart';
 import 'package:instaid_dev/components/no_account.dart';
 import 'package:instaid_dev/constants.dart';
+import 'package:instaid_dev/utils/colors.dart';
 import 'package:instaid_dev/size_config.dart';
 
 class Body extends StatelessWidget {

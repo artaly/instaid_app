@@ -3,6 +3,7 @@ import 'package:instaid_dev/screens/otp/components/otp_form.dart';
 import 'package:instaid_dev/screens/register/components/register_form.dart';
 import 'package:instaid_dev/screens/register/register.dart';
 import 'package:instaid_dev/size_config.dart';
+import 'package:instaid_dev/utils/colors.dart';
 
 import '../../../constants.dart';
 
@@ -53,7 +54,7 @@ class Body extends StatelessWidget {
           duration: Duration(seconds: 30),
           builder: (_, dynamic value, child) => Text(
             "00:${value.toInt()}",
-            style: TextStyle(color: primaryColorBlue),
+            style: TextStyle(color: primaryColor),
           ),
         ),
       ],

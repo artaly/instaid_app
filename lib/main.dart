@@ -6,9 +6,8 @@ import 'package:flutter/services.dart';
 import 'package:instaid_dev/routes.dart';
 import 'package:instaid_dev/screens/login/login.dart';
 import 'package:instaid_dev/screens/onboarding/onboard.dart';
-import 'package:instaid_dev/constants.dart';
+import 'package:instaid_dev/utils/colors.dart';
 import 'package:instaid_dev/screens/login/login.dart';
-import 'package:instaid_dev/constants.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,7 +35,7 @@ class MyApp extends StatelessWidget {
                 fontFamily: 'OpenSans', fontSize: 18, color: Color(0XFF8B8B8B)),
           ),
           scaffoldBackgroundColor: primaryBackground,
-          primaryColor: primaryColorBlue,
+          primaryColor: primaryColor,
           fontFamily: "Gotham",
           visualDensity: VisualDensity.adaptivePlatformDensity),
       initialRoute: LoginScreen.routeName,

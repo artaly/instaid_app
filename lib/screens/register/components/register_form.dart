@@ -9,6 +9,7 @@ import 'package:instaid_dev/screens/login/login.dart';
 import 'package:instaid_dev/screens/otp/otp.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:instaid_dev/utils/colors.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import 'package:instaid_dev/size_config.dart';

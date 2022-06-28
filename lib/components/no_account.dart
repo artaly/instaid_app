@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../constants.dart';
+import 'package:instaid_dev/utils/colors.dart';
 import '../size_config.dart';
 import 'package:instaid_dev/screens/register/register.dart';
 
@@ -23,7 +23,7 @@ class NoAccount extends StatelessWidget {
           child: Text("Register",
               style: TextStyle(
                   fontSize: getProportionateScreenWidth(16),
-                  color: primaryColorBlue)),
+                  color: primaryColor)),
         ),
       ],
     );

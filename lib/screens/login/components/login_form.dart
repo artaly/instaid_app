@@ -9,6 +9,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:instaid_dev/screens/login/forgot_password.dart';
 import 'package:instaid_dev/size_config.dart';
 import 'package:instaid_dev/constants.dart';
+import 'package:instaid_dev/utils/colors.dart';
 
 import '../../home/home.dart';
 
@@ -50,7 +51,7 @@ class _LoginFormState extends State<LoginForm> {
           children: [
             Checkbox(
               value: remember,
-              activeColor: primaryColorBlue,
+              activeColor: primaryColor,
               onChanged: (value) {
                 setState(() {
                   remember = value;
