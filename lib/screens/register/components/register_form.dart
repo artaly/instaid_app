@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:instaid_dev/components/default_button.dart';
 import 'package:instaid_dev/constants.dart';
 import 'package:instaid_dev/models/user_model.dart';
-import 'package:instaid_dev/screens/home.dart';
+import 'package:instaid_dev/screens/home/home.dart';
 import 'package:instaid_dev/screens/login/login.dart';
 import 'package:instaid_dev/screens/otp/otp.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -337,16 +337,14 @@ class _RegisterFormState extends State<RegisterForm> {
         .doc(user.uid)
         .set(userModel.toMap());
     Fluttertoast.showToast(msg: "Account created successfully!");
-       
+
     // Test code. After register should be OTP Screen
     // Navigator.pushAndRemoveUntil(
     //     (context),
     //     MaterialPageRoute(builder: (context) => LoginScreen()),
     //     (route) => false);
 
-    Navigator.pushAndRemoveUntil(
-        (context),
-        MaterialPageRoute(builder: (context) => OTPScreen()),
-        (route) => false);
+    Navigator.pushAndRemoveUntil((context),
+        MaterialPageRoute(builder: (context) => OTPScreen()), (route) => false);
   }
 }
