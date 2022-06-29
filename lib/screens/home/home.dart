@@ -7,28 +7,8 @@ import 'package:instaid_dev/utils/enum.dart';
 
 import '../../components/custom_bottom_navbar.dart';
 
-// class HomeScreen extends StatelessWidget {
-//   static String routeName = "/home";
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//         appBar: AppBar(
-//           title: Text("Home Page"),
-//         ),
-//         backgroundColor: primaryBackground,
-//         bottomNavigationBar: CustomNavBar());
-//   }
-// }
-
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class HomeScreen extends StatelessWidget {
   static String routeName = "/home";
-
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,3 +19,31 @@ class _HomeScreenState extends State<HomeScreen> {
         bottomNavigationBar: CustomNavBar());
   }
 }
+
+// class HomeScreen extends StatefulWidget {
+//   const HomeScreen({Key? key}) : super(key: key);
+//   static String routeName = "/home";
+
+//   @override
+//   State<HomeScreen> createState() => _HomeScreenState();
+// }
+
+// class _HomeScreenState extends State<HomeScreen> {
+//   int _selectedIndex = 0;
+
+//   void _onItemTapped(int index) {
+//     setState(() {
+//       _selectedIndex = index;
+//     });
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//         appBar: AppBar(
+//           title: Text("Home Page"),
+//         ),
+//         backgroundColor: primaryBackground,
+//         bottomNavigationBar: CustomNavBar());
+//   }
+// }
