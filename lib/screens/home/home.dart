@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
         title: Text("Home Page"),
       ),
       backgroundColor: primaryBackground,
-      bottomNavigationBar: CustomNavBar(),
+      //bottomNavigationBar: CustomNavBar(),
       body: Body(),
     );
   }

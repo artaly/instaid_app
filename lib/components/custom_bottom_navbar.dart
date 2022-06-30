@@ -1,6 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:instaid_dev/screens/home/home.dart';
+import 'package:instaid_dev/screens/login/login.dart';
+import 'package:instaid_dev/screens/otp/otp.dart';
+import 'package:instaid_dev/screens/register/register.dart';
 
 import '../size_config.dart';
 import '../utils/colors.dart';
@@ -14,6 +18,12 @@ class CustomNavBar extends StatefulWidget {
 
 class _CustomNavBarState extends State<CustomNavBar> {
   int _selectedIndex = 0;
+  final List<Widget> _widgetOptions = [
+    HomeScreen(),
+    RegisterScreen(),
+    LoginScreen(),
+    OTPScreen(),
+  ];
 
   void _onItemTapped(int index) {
     setState(() {
