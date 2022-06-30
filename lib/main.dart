@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:instaid_dev/routes.dart';
 import 'package:instaid_dev/screens/home/home.dart';
 import 'package:instaid_dev/screens/login/login.dart';
+import 'package:instaid_dev/screens/main_screen.dart';
 import 'package:instaid_dev/screens/onboarding/onboard.dart';
 import 'package:instaid_dev/utils/colors.dart';
 import 'package:instaid_dev/screens/login/login.dart';
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
           primaryColor: primaryColor,
           fontFamily: "Gotham",
           visualDensity: VisualDensity.adaptivePlatformDensity),
-      initialRoute: HomeScreen.routeName,
+      initialRoute: MainScreen.routeName,
       routes: routes,
     );
   }
