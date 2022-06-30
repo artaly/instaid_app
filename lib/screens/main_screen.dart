@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:instaid_dev/screens/home/home.dart';
 import 'package:instaid_dev/screens/login/login.dart';
 import 'package:instaid_dev/screens/otp/otp.dart';
+import 'package:instaid_dev/screens/profile/profile.dart';
 
 import '../size_config.dart';
 import '../utils/colors.dart';
@@ -29,7 +30,12 @@ class _MainScreenState extends State<MainScreen> {
           physics: NeverScrollableScrollPhysics(),
           controller: _pageController,
           onPageChanged: onPageChanged,
-          children: <Widget>[HomeScreen(), OTPScreen(), LoginScreen()],
+          children: <Widget>[
+            HomeScreen(),
+            OTPScreen(),
+            LoginScreen(),
+            ProfileScreen()
+          ],
         ),
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Color(0xFFF4F5F9),
