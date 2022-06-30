@@ -20,7 +20,7 @@ class Dialogs {
             children: <Widget>[
               SizedBox(height: 15.0),
               Text(
-                "Hoy",
+                "InstAID",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 16.0,
