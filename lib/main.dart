@@ -3,13 +3,15 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:instaid_dev/routes.dart';
+import 'package:instaid_dev/utils/routes.dart';
 import 'package:instaid_dev/screens/home/home.dart';
 import 'package:instaid_dev/screens/login/login.dart';
 import 'package:instaid_dev/screens/main_screen.dart';
 import 'package:instaid_dev/screens/onboarding/onboard.dart';
 import 'package:instaid_dev/utils/colors.dart';
 import 'package:instaid_dev/screens/login/login.dart';
+
+import 'utils/routes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
