@@ -7,6 +7,7 @@ import 'package:instaid_dev/utils/enum.dart';
 
 import '../../components/custom_bottom_navbar.dart';
 import '../../components/default_button.dart';
+import '../home/components/body.dart';
 
 class HomeScreen extends StatelessWidget {
   static String routeName = "/home";
