@@ -5,7 +5,6 @@ import 'package:instaid_dev/size_config.dart';
 import 'package:instaid_dev/utils/colors.dart';
 import 'package:instaid_dev/utils/enum.dart';
 
-import '../../components/custom_bottom_navbar.dart';
 import '../../components/default_button.dart';
 import '../home/components/body.dart';
 
